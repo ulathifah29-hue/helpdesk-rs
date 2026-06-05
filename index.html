@@ -54,12 +54,19 @@
             ]);
 
             if(error){
-                document.getElementById('hasil').innerText =
-                error.message;
-            }else{
-                document.getElementById('hasil').innerText =
-                'Laporan berhasil dikirim';
-            }
+
+    alert("ERROR : " + error.message);
+
+    document.getElementById('hasil').innerText =
+    error.message;
+
+}else{
+
+    alert("BERHASIL MASUK DATABASE");
+
+    document.getElementById('hasil').innerText =
+    'Laporan berhasil dikirim';
+}
         });
     </script>
 </body>
