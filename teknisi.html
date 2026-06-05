@@ -5,31 +5,8 @@
 
 <h1>Dashboard Teknisi</h1>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
 <script>
-
-const supabaseUrl = "https://igfqwajfoplpubuurqed.supabase.co";
-
-const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlnZnF3YWpmb3BscHVidXVycWVkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA2MTk1MDYsImV4cCI6MjA5NjE5NTUwNn0.n3256qBTUwZ__UYLlwTZyiiumQ3agDKj4C5nR6WzE3M";
-
-const supabase = window.supabase.createClient(
-    supabaseUrl,
-    supabaseKey
-);
-
-async function test(){
-
-    const { data, error } = await supabase
-        .from('tiket')
-        .select('*');
-
-    alert("ERROR = " + JSON.stringify(error));
-    alert("DATA = " + JSON.stringify(data));
-}
-
-test();
-
+alert("TEST 123");
 </script>
 
 </body>
