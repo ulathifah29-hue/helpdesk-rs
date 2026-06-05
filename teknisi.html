@@ -3,25 +3,42 @@
 <html>
 <body>
 
-<h1>Dashboard Teknisi V2 TEST</h1>
+<h1>Dashboard Teknisi V3</h1>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
 
-alert("JS Jalan");
+alert("1. JS Jalan");
 
 const supabaseUrl = "https://igfqwajfoplpubuurqed.supabase.co";
 
-const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlnZnF3YWpmb3BscHVidXVycWVkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA2MTk1MDYsImV4cCI6MjA5NjE5NTUwNn0.n3256qBTUwZ__UYLlwTZyiiumQ3agDKj4C5nR6WzE3M";
-alert("Sebelum Client");
+const supabaseKey = "PASTE_ANON_KEY_YANG_SAMA_DENGAN_INDEX_HTML";
+
+alert("2. Key Sudah Dibaca");
 
 const supabase = window.supabase.createClient(
     supabaseUrl,
     supabaseKey
 );
 
-alert("Sesudah Client");
+alert("3. Client Berhasil");
+
+async function test(){
+
+    alert("4. Mulai Query");
+
+    const hasil = await supabase
+        .from('tiket')
+        .select('*');
+
+    alert("5. Hasil Query");
+
+    alert(JSON.stringify(hasil));
+
+}
+
+test();
 
 </script>
 
