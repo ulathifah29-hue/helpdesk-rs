@@ -5,8 +5,34 @@
 
 <h1>Dashboard Teknisi</h1>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script>
-alert("TEST BERHASIL");
+
+const supabaseUrl = "https://igfqwajfoplpubuurqed.supabase.co";
+const supabaseKey = "PASTE_KEY_YANG_SAMA_DENGAN_INDEX_HTML";
+
+const supabase = window.supabase.createClient(
+    supabaseUrl,
+    supabaseKey
+);
+
+async function test(){
+
+    const { data, error } = await supabase
+        .from('tiket')
+        .select('*');
+
+    alert("ERROR:");
+    alert(JSON.stringify(error));
+
+    alert("DATA:");
+    alert(JSON.stringify(data));
+
+}
+
+test();
+
 </script>
 
 </body>
