@@ -26,8 +26,12 @@ async function loadTiket() {
     alert("Load tiket dijalankan");
 
     const { data, error } = await supabase
-        .from('tiket')
-        .select('*');
+    .from('tiket')
+    .select('*');
+
+alert("Error = " + JSON.stringify(error));
+alert("Data = " + JSON.stringify(data));
+
 
    if(error){
     alert(error.message);
