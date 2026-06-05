@@ -29,11 +29,12 @@ async function loadTiket() {
         .from('tiket')
         .select('*');
 
-    if(error){
-        document.getElementById('daftarTiket').innerHTML =
-        error.message;
-        return;
-    }
+   if(error){
+    alert(error.message);
+    document.getElementById('daftarTiket').innerHTML =
+    error.message;
+    return;
+}
 
     let html = "";
 
