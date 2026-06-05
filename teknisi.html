@@ -21,13 +21,13 @@ const supabase = window.supabase.createClient(
     supabaseUrl,
     supabaseKey
 );
-
 async function loadTiket() {
+
+    alert("Load tiket dijalankan");
 
     const { data, error } = await supabase
         .from('tiket')
-        .select('*')
-        .order('id', { ascending: false });
+        .select('*');
 
     if(error){
         document.getElementById('daftarTiket').innerHTML =
