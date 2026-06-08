@@ -14,9 +14,13 @@
 
 <script>
 
+const supabaseUrl = "https://igfqwajfoplpubuurqed.supabase.co";
+
+const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlnZnF3YWpmb3BscHVidXVycWVkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA2MTk1MDYsImV4cCI6MjA5NjE5NTUwNn0.n3256qBTUwZ__UYLlwTZyiiumQ3agDKj4C5nR6WzE3M";
+
 const db = window.supabase.createClient(
-  "https://igfqwajfoplpubuurqed.supabase.co",
-  "ISI_ANON_KEY_YANG_SAMA_DENGAN_INDEX_HTML"
+  supabaseUrl,
+  supabaseKey
 );
 
 async function loadData(){
