@@ -31,10 +31,10 @@
 
         const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlnZnF3YWpmb3BscHVidXVycWVkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA2MTk1MDYsImV4cCI6MjA5NjE5NTUwNn0.n3256qBTUwZ__UYLlwTZyiiumQ3agDKj4C5nR6WzE3M';
 
-        const supabase = window.supabase.createClient(
-            supabaseUrl,
-            supabaseKey
-        );
+        const db = window.supabase.createClient(
+    supabaseUrl,
+    supabaseKey
+);
 
         document
         .getElementById('laporForm')
@@ -42,16 +42,16 @@
 
             e.preventDefault();
 
-            const { error } = await supabase
-            .from('tiket')
-            .insert([
-                {
-                    pelapor: document.getElementById('pelapor').value,
-                    ruangan: document.getElementById('ruangan').value,
-                    alat: document.getElementById('alat').value,
-                    kendala: document.getElementById('kendala').value
-                }
-            ]);
+           const { error } = await db
+    .from('tiket')
+    .insert([
+        {
+            pelapor: document.getElementById('pelapor').value,
+            ruangan: document.getElementById('ruangan').value,
+            alat: document.getElementById('alat').value,
+            kendala: document.getElementById('kendala').value
+        }
+    ]);
 
            if(error){
 
