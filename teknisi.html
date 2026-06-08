@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 
 <html>
+<head>
+<title>Dashboard Teknisi</title>
+</head>
 <body>
 
-<h1>Dashboard Teknisi V4</h1>
+<h1>Dashboard Teknisi RS</h1>
+
+<div id="data">Loading...</div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
@@ -11,25 +16,68 @@
 
 const db = window.supabase.createClient(
   "https://igfqwajfoplpubuurqed.supabase.co",
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlnZnF3YWpmb3BscHVidXVycWVkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA2MTk1MDYsImV4cCI6MjA5NjE5NTUwNn0.n3256qBTUwZ__UYLlwTZyiiumQ3agDKj4C5nR6WzE3M"
+  "ISI_ANON_KEY_YANG_SAMA_DENGAN_INDEX_HTML"
 );
-async function test() {
+
+async function loadData(){
 
   const { data, error } = await db
     .from('tiket')
-    .select('*');
+    .select('*')
+    .order('id', { ascending: false });
 
   if(error){
-    alert("ERROR: " + error.message);
+    document.getElementById('data').innerHTML =
+      error.message;
     return;
   }
 
-  document.body.innerHTML +=
-    "<pre>" + JSON.stringify(data, null, 2) + "</pre>";
+  let html = "";
 
+  data.forEach(item => {
+
+    html += `
+      <div style="border:1px solid #ccc;padding:10px;margin:10px;">
+        <h3>Tiket #${item.id}</h3>
+
+        <p><b>Pelapor:</b> ${item.pelapor}</p>
+        <p><b>Ruangan:</b> ${item.ruangan}</p>
+        <p><b>Alat:</b> ${item.alat}</p>
+        <p><b>Kendala:</b> ${item.kendala}</p>
+        <p><b>Status:</b> ${item.status}</p>
+
+        <button onclick="ubahStatus(${item.id},'PROGRESS')">
+          Progress
+        </button>
+
+        <button onclick="ubahStatus(${item.id},'PENDING')">
+          Pending
+        </button>
+
+        <button onclick="ubahStatus(${item.id},'SELESAI')">
+          Selesai
+        </button>
+
+      </div>
+    `;
+  });
+
+  document.getElementById('data').innerHTML = html;
 }
 
-test();
+async function ubahStatus(id,status){
+
+  await db
+    .from('tiket')
+    .update({
+      status: status
+    })
+    .eq('id', id);
+
+  loadData();
+}
+
+loadData();
 
 </script>
 
