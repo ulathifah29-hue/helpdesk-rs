@@ -53,20 +53,26 @@
                 }
             ]);
 
-            if(error){
+           if(error){
 
-   alert("BERHASIL MASUK DATABASE");
+```
+alert("ERROR: " + error.message);
 
-    document.getElementById('hasil').innerText =
-    error.message;
+document.getElementById('hasil').innerText =
+error.message;
+```
 
 }else{
 
-    alert("BERHASIL MASUK DATABASE");
+```
+alert("BERHASIL MASUK DATABASE");
 
-    document.getElementById('hasil').innerText =
-    'Laporan berhasil dikirim';
+document.getElementById('hasil').innerText =
+'Laporan berhasil dikirim';
+```
+
 }
+
         });
     </script>
 </body>
